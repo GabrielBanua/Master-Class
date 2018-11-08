@@ -3,14 +3,18 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'courses',
     template: `
-        <h2>{{ title }}</h2>
-        <h2 [textContent]="title"></h2>
-
-        <img src="{{ imageUrl }}" />
         <img [src]="imageUrl" /> 
-        `// Property binding example <img [src]="imageUrl"/> && <h2 [textContent]="title"></h2>
+        <table>
+            <tr>
+                <td [attr.colspan]="colSpan"></td>
+            </tr>
+        </table>
+        `
+        //Attribute binding example <td [attr.colspan]="colSpan"></td>
+        /**note DOM element don't have an attribute like colspan in HTML thats why we need to tell angular when 
+          binding colspan in DOM element that this is an HTML attribute thats why we add "attr.colspan"**/
 })
 export class CoursesComponent{
-   title = "List of courses";
-   imageUrl = "http://lorempixel.com/400/200";
+   imageUrl = "";
+   colSpan = 2;
 }
